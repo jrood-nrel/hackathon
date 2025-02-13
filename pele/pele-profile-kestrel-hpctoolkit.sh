@@ -76,7 +76,7 @@ cmd "cd ${MYCWD}/PeleLMeX/Exec/RegTests/FlameSheet"
 
 cmd "export MPICH_OFI_SKIP_NIC_SYMMETRY_TEST=1"
 cmd "export MPICH_GPU_SUPPORT_ENABLED=0"
-srun -N ${SLURM_JOB_NUM_NODES} -n ${RANKS} --ntasks-per-node=${NTASKS_PER_NODE} --gpus-per-node=4 --gpu-bind=closest hpcrun -o profile-gpu -f 0.2 -t -e CPUTIME -e gpu=nvidia ./PeleLMeX3d.gnu.TPROF.MPI.CUDA.ex flamesheet-drm19-3d.inp cvode.solve_type=GMRES amrex.abort_on_out_of_gpu_memory=1 amrex.the_arena_is_managed=0 amr.blocking_factor=16 amr.max_grid_size=128 amrex.use_profiler_syncs=0 amrex.async_out=0 amrex.use_gpu_aware_mpi=0
+srun -N ${SLURM_JOB_NUM_NODES} -n ${RANKS} --ntasks-per-node=${NTASKS_PER_NODE} --gpus-per-node=4 --gpu-bind=closest hpcrun -o profile-gpu -t -e CPUTIME -e gpu=nvidia ./PeleLMeX3d.gnu.TPROF.MPI.CUDA.ex flamesheet-drm19-3d.inp cvode.solve_type=GMRES amrex.abort_on_out_of_gpu_memory=1 amrex.the_arena_is_managed=0 amr.blocking_factor=16 amr.max_grid_size=128 amrex.use_profiler_syncs=0 amrex.async_out=0 amrex.use_gpu_aware_mpi=0
 cmd "hpcstruct profile-gpu"
 cmd "hpcprof -o profile-gpu-db profile-gpu"
 EOF
