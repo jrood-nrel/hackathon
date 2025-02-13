@@ -13,7 +13,7 @@ cat >build.sh <<'EOF'
 
 #SBATCH --job-name=pele-test-case-build-gpu
 #SBATCH --output %x.o%j
-#SBATCH --account=hpcapps
+#SBATCH --account=hpacf
 #SBATCH --time=1:00:00
 #SBATCH --partition=gpu-h100s
 #SBATCH --nodes=1
@@ -47,7 +47,7 @@ cat >run.sh <<'EOF'
 
 #SBATCH --job-name=pele-test-case-run-gpu
 #SBATCH --output %x.o%j
-#SBATCH --account=hpcapps
+#SBATCH --account=hpacf
 #SBATCH --time=1:00:00
 #SBATCH --partition=gpu-h100s
 #SBATCH --nodes=2

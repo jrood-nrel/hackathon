@@ -11223,7 +11223,7 @@ cat >build.sh <<'EOF'
 
 #SBATCH --job-name=amr-wind-test-case-build-gpu
 #SBATCH --output %x.o%j
-#SBATCH --account=hpacf
+#SBATCH --account=hfm
 #SBATCH --time=1:00:00
 #SBATCH --partition=gpu-h100s
 #SBATCH --nodes=1
@@ -11264,7 +11264,7 @@ cat >run.sh <<'EOF'
 
 #SBATCH --job-name=amr-wind-test-case-run-gpu
 #SBATCH --output %x.o%j
-#SBATCH --account=hpacf
+#SBATCH --account=hfm
 #SBATCH --time=1:00:00
 #SBATCH --partition=gpu-h100s
 #SBATCH --nodes=2
